@@ -279,7 +279,7 @@ function App() {
             transition={{ delay: 0.6, duration: 0.8 }}
           >
             <img
-              src="../src/assets/avatar.svg"
+              src="/avatar.svg"
               alt="Tal Sagie Memoji"
               className="w-full h-full object-cover"
             />
