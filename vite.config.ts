@@ -10,5 +10,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "/talsag-dev.github.io/", // Replace with your GitHub repo name (ensure no typo)
+  base: "/talsag-dev.github.io/portfolio", // Replace with your GitHub repo name (ensure no typo)
 });
