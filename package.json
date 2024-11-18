@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
+    "@svgr/plugin-prettier": "^8.1.0",
     "@types/node": "^22.9.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
@@ -35,6 +36,7 @@
     "gh-pages": "^6.2.0",
     "globals": "^15.11.0",
     "postcss": "^8.4.49",
+    "prettier": "^3.3.3",
     "tailwindcss": "^3.4.15",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.11.0",

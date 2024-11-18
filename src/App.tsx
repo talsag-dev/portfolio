@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import {
   Instagram,
   Linkedin,
@@ -21,15 +21,17 @@ import {
   Sun,
   CloudLightning,
   Cat,
-} from "lucide-react";
+  Facebook,
+  Github,
+} from 'lucide-react';
 
 function useTypingEffect(
   texts: string[],
   typingSpeed = 50,
   erasingSpeed = 30,
-  delayBetweenTexts = 2000
+  delayBetweenTexts = 2000,
 ) {
-  const [displayText, setDisplayText] = useState("");
+  const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
 
@@ -47,7 +49,7 @@ function useTypingEffect(
         }, delayBetweenTexts);
       }
     } else {
-      if (displayText === "") {
+      if (displayText === '') {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % texts.length);
         setIsTyping(true);
       } else {
@@ -72,27 +74,27 @@ function useTypingEffect(
 }
 
 function ThemeToggle() {
-  const [theme, setTheme] = useState<"light" | "dark">(() => {
-    if (typeof window !== "undefined" && window.localStorage) {
-      const storedTheme = window.localStorage.getItem("theme");
-      return storedTheme ? (storedTheme as "light" | "dark") : "light";
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const storedTheme = window.localStorage.getItem('theme');
+      return storedTheme ? (storedTheme as 'light' | 'dark') : 'light';
     }
-    return "light";
+    return 'light';
   });
 
   useEffect(() => {
     const root = window.document.documentElement;
-    root.classList.remove("light", "dark");
+    root.classList.remove('light', 'dark');
     root.classList.add(theme);
-    localStorage.setItem("theme", theme);
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
   return (
     <button
-      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+      onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
       className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200"
     >
-      {theme === "light" ? (
+      {theme === 'light' ? (
         <Moon className="w-6 h-6" />
       ) : (
         <Sun className="w-6 h-6" />
@@ -105,9 +107,9 @@ function ThemeToggle() {
 function App() {
   useEffect(() => {
     const root = window.document.documentElement;
-    const initialColorValue = root.classList.contains("dark")
-      ? "dark"
-      : "light";
+    const initialColorValue = root.classList.contains('dark')
+      ? 'dark'
+      : 'light';
     root.classList.add(initialColorValue);
   }, []);
 
@@ -121,10 +123,15 @@ function App() {
   };
 
   const typingTexts = [
-    "Full Stack Developer with a passion for creating innovative web solutions.",
-    "I specialize in React, Node.js, and modern web technologies.",
-    "My goal is to build efficient, scalable, and user-friendly applications.",
+    'Full Stack Developer with a passion for creating innovative web solutions.',
+    'I specialize in React, Node.js, and modern web technologies.',
+    'My goal is to build efficient, scalable, and user-friendly applications.',
     "I'm always eager to learn and take on new challenges in the tech world.",
+    'Runner',
+    'Sports Enthusiast',
+    'Coffee Lover',
+    'Traveler',
+    'Music Fan',
   ];
 
   const displayText = useTypingEffect(typingTexts);
@@ -150,46 +157,46 @@ function App() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   const projects = [
     {
-      name: "E-commerce Platform",
-      color: "from-pink-500 to-rose-500",
+      name: 'E-commerce Platform',
+      color: 'from-pink-500 to-rose-500',
       description:
-        "A full-featured online shopping experience with secure payments and inventory management.",
+        'A full-featured online shopping experience with secure payments and inventory management.',
     },
     {
-      name: "Social Media App",
-      color: "from-purple-500 to-indigo-500",
+      name: 'Social Media App',
+      color: 'from-purple-500 to-indigo-500',
       description:
-        "Connect with friends and share your life moments through this interactive platform.",
+        'Connect with friends and share your life moments through this interactive platform.',
     },
     {
-      name: "Portfolio Website",
-      color: "from-blue-500 to-cyan-500",
+      name: 'Portfolio Website',
+      color: 'from-blue-500 to-cyan-500',
       description:
-        "Showcase your work and skills with this customizable and responsive portfolio template.",
+        'Showcase your work and skills with this customizable and responsive portfolio template.',
     },
     {
-      name: "Task Management Tool",
-      color: "from-green-500 to-emerald-500",
+      name: 'Task Management Tool',
+      color: 'from-green-500 to-emerald-500',
       description:
-        "Boost productivity with this intuitive task organizer and collaboration tool.",
+        'Boost productivity with this intuitive task organizer and collaboration tool.',
     },
     {
-      name: "Weather App",
-      color: "from-yellow-500 to-amber-500",
+      name: 'Weather App',
+      color: 'from-yellow-500 to-amber-500',
       description:
-        "Get accurate weather forecasts and alerts for any location around the globe.",
+        'Get accurate weather forecasts and alerts for any location around the globe.',
     },
     {
-      name: "Fitness Tracker",
-      color: "from-red-500 to-orange-500",
+      name: 'Fitness Tracker',
+      color: 'from-red-500 to-orange-500',
       description:
-        "Monitor your workouts, set goals, and track your progress towards a healthier lifestyle.",
+        'Monitor your workouts, set goals, and track your progress towards a healthier lifestyle.',
     },
   ];
 
@@ -199,27 +206,27 @@ function App() {
   };
 
   const skills: Skill[] = [
-    { name: "Git", icon: <GitBranch className="w-12 h-12" /> },
-    { name: "Jest", icon: <Beaker className="w-12 h-12" /> },
-    { name: "React Testing Library", icon: <TestTube className="w-12 h-12" /> },
-    { name: "Playwright", icon: <Theater className="w-12 h-12" /> },
-    { name: "TypeScript", icon: <FileType className="w-12 h-12" /> },
-    { name: "JavaScript", icon: <FileType className="w-12 h-12" /> },
-    { name: "ECMAScript", icon: <FileType className="w-12 h-12" /> },
-    { name: "Styled Components", icon: <Paintbrush className="w-12 h-12" /> },
-    { name: "Material-UI", icon: <Layout className="w-12 h-12" /> },
-    { name: "Next.js", icon: <Server className="w-12 h-12" /> },
-    { name: "React", icon: <Component className="w-12 h-12" /> },
-    { name: "Nest.js", icon: <Cat className="w-12 h-12" /> },
-    { name: "Express", icon: <Server className="w-12 h-12" /> },
-    { name: "Node.js", icon: <Server className="w-12 h-12" /> },
-    { name: "MongoDB", icon: <Database className="w-12 h-12" /> },
-    { name: "PostgreSQL", icon: <Database className="w-12 h-12" /> },
-    { name: "MySQL", icon: <Database className="w-12 h-12" /> },
-    { name: "Docker", icon: <Rocket className="w-12 h-12" /> },
-    { name: "Kubernetes", icon: <Rocket className="w-12 h-12" /> },
-    { name: "GCP", icon: <Rocket className="w-12 h-12" /> },
-    { name: "vite", icon: <CloudLightning className="w-12 h-12" /> },
+    { name: 'Git', icon: <GitBranch className="w-12 h-12" /> },
+    { name: 'GCP', icon: <Rocket className="w-12 h-12" /> },
+    { name: 'Jest', icon: <Beaker className="w-12 h-12" /> },
+    { name: 'React Testing Library', icon: <TestTube className="w-12 h-12" /> },
+    { name: 'Playwright', icon: <Theater className="w-12 h-12" /> },
+    { name: 'JavaScript', icon: <FileType className="w-12 h-12" /> },
+    { name: 'Kubernetes', icon: <Rocket className="w-12 h-12" /> },
+    { name: 'ECMAScript', icon: <FileType className="w-12 h-12" /> },
+    { name: 'Styled Components', icon: <Paintbrush className="w-12 h-12" /> },
+    { name: 'Material-UI', icon: <Layout className="w-12 h-12" /> },
+    { name: 'Next.js', icon: <Server className="w-12 h-12" /> },
+    { name: 'React', icon: <Component className="w-12 h-12" /> },
+    { name: 'Nest.js', icon: <Cat className="w-12 h-12" /> },
+    { name: 'PostgreSQL', icon: <Database className="w-12 h-12" /> },
+    { name: 'Express', icon: <Server className="w-12 h-12" /> },
+    { name: 'Node.js', icon: <Server className="w-12 h-12" /> },
+    { name: 'TypeScript', icon: <FileType className="w-12 h-12" /> },
+    { name: 'MongoDB', icon: <Database className="w-12 h-12" /> },
+    { name: 'Docker', icon: <Rocket className="w-12 h-12" /> },
+    { name: 'vite', icon: <CloudLightning className="w-12 h-12" /> },
+    { name: 'MySQL', icon: <Database className="w-12 h-12" /> },
   ];
 
   return (
@@ -291,16 +298,9 @@ function App() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.8 }}
           >
-            <a
-              href="mailto:hello@example.com"
-              className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors text-lg"
-            >
-              talsagie19@gmail.com
-            </a>
-
             <div className="flex gap-6">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/tal-sagie-92564756/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
@@ -310,17 +310,27 @@ function App() {
               </a>
 
               <a
-                href="https://twitter.com"
+                href="https://www.facebook.com/tal.sa123/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
               >
-                <Twitter className="w-6 h-6" />
+                <Facebook className="w-6 h-6" />
                 <span className="sr-only">Twitter Profile</span>
               </a>
 
               <a
-                href="https://instagram.com"
+                href="https://github.com/talsag-dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
+              >
+                <Github className="w-6 h-6" />
+                <span className="sr-only">Github Profile</span>
+              </a>
+
+              <a
+                href="https://www.instagram.com/talsag/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
@@ -330,7 +340,7 @@ function App() {
               </a>
 
               <a
-                href="mailto:hello@example.com"
+                href="mailto:talsagie19@gmail.com"
                 className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
               >
                 <Mail className="w-6 h-6" />
@@ -350,15 +360,11 @@ function App() {
             <span className="inline-block px-4 text-[200px] font-bold opacity-20">
               About
             </span>
-            <span className="inline-block px-4 text-[200px] font-bold">
-              Tal Sagie
-            </span>
+            <span className="inline-block px-4 text-[200px] font-bold">Me</span>
             <span className="inline-block px-4 text-[200px] font-bold opacity-20">
               About
             </span>
-            <span className="inline-block px-4 text-[200px] font-bold">
-              Tal Sagie
-            </span>
+            <span className="inline-block px-4 text-[200px] font-bold">Me</span>
           </div>
         </div>
 
@@ -369,10 +375,10 @@ function App() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            Welcome to{" "}
+            Welcome to{' '}
             <a href="https://github.com/talsag-dev">
               <code className="hover:underline">@talsag-dev</code>
-            </a>{" "}
+            </a>{' '}
             Portfolio!
           </h2>
           <div className="text-2xl md:text-3xl lg:text-4xl leading-relaxed min-h-[120px]">
@@ -414,28 +420,28 @@ function App() {
         >
           <div className="space-y-12">
             <div>
-              <h3 className="text-2xl font-bold mb-2">
-                Senior Full Stack Developer
-              </h3>
+              <h3 className="text-2xl font-bold mb-2">Full Stack Developer</h3>
               <p className="text-xl text-gray-600 dark:text-gray-400 mb-4">
-                Tech Innovators Inc. • 2018 - Present
+                retrain.ai • 2022 - Present
               </p>
               <p className="text-lg">
                 Led development of multiple high-traffic web applications using
-                React, Node.js, and AWS. Implemented CI/CD pipelines and
+                React, Node.js, and GCP. Implemented CI/CD pipelines and
                 mentored junior developers.
               </p>
             </div>
             <div>
-              <h3 className="text-2xl font-bold mb-2">Full Stack Developer</h3>
+              <h3 className="text-2xl font-bold mb-2">
+                QA Automation Developer
+              </h3>
               <p className="text-xl text-gray-600 dark:text-gray-400 mb-4">
-                Digital Solutions Co. • 2015 - 2018
+                Perfecto • 2021 - 2022
               </p>
               <p className="text-lg">
-                Developed and maintained various web applications using
-                JavaScript, React, and Express. Collaborated with
-                cross-functional teams to deliver projects on time and within
-                budget.
+                Collaborated with cross-functional teams (developers, QA,
+                product managers) to identify critical test cases and design
+                automation strategies, ensuring adherence to agile development
+                cycles.
               </p>
             </div>
           </div>
@@ -474,28 +480,26 @@ function App() {
         >
           <div className="space-y-12">
             <div>
-              <h3 className="text-2xl font-bold mb-2">
-                Master of Science in Computer Science
-              </h3>
+              <h3 className="text-2xl font-bold mb-2">B.Sc Computer Science</h3>
               <p className="text-xl text-gray-600 dark:text-gray-400 mb-4">
-                Tech University • 2013 - 2015
+                HIT - Holon Institute of Technology • 2019 - 2022
               </p>
               <p className="text-lg">
-                Focused on advanced algorithms, machine learning, and software
-                engineering. Thesis: "Optimizing React Applications for
-                Performance"
+                Focused on advanced algorithms, data structures, machine
+                learning, and software engineering. Graduated with honors.
               </p>
             </div>
             <div>
-              <h3 className="text-2xl font-bold mb-2">
-                Bachelor of Science in Software Engineering
-              </h3>
+              <h3 className="text-2xl font-bold mb-2">B.Sc Mathematics</h3>
               <p className="text-xl text-gray-600 dark:text-gray-400 mb-4">
-                State College of Technology • 2009 - 2013
+                HIT - Holon Institute of Technology • 2019 - 2022
               </p>
               <p className="text-lg">
-                Developed a strong foundation in programming, data structures,
-                and software design principles. Graduated with honors.
+                Specialized in advanced mathematical fields, including linear
+                algebra, calculus, probability, and discrete mathematics.
+                Developed strong problem-solving skills and analytical thinking,
+                with a focus on applying mathematical principles to real-world
+                challenges. Graduated with honors.
               </p>
             </div>
           </div>
@@ -672,7 +676,7 @@ function App() {
       </section>
       <div className="fixed bottom-8 right-8">
         <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="p-3 bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 rounded-full transition-colors"
         >
           <ArrowUp className="w-6 h-6" />
