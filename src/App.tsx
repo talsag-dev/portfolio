@@ -29,7 +29,7 @@ function useTypingEffect(
   texts: string[],
   typingSpeed = 50,
   erasingSpeed = 30,
-  delayBetweenTexts = 2000,
+  delayBetweenTexts = 2000
 ) {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -163,10 +163,11 @@ function App() {
 
   const projects = [
     {
-      name: 'E-commerce Platform',
+      name: 'Dear Me',
       color: 'from-pink-500 to-rose-500',
       description:
-        'A full-featured online shopping experience with secure payments and inventory management.',
+        'A web app to enter your thoughts, feelings, and experiences in a digital diary.',
+      link: 'https://talsag-dev.github.io/dear-me/',
     },
     {
       name: 'Social Media App',
@@ -585,6 +586,11 @@ function App() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
                 className="aspect-[4/3] w-full"
+                onClick={
+                  project.link
+                    ? () => window.open(project.link, '_blank')
+                    : undefined
+                }
               >
                 <div
                   className={`group relative bg-gradient-to-br ${project.color} w-full h-full overflow-hidden cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl rounded-lg`}
