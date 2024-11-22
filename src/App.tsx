@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import DearMeImage from './assets/DearMe.png';
 import {
   Instagram,
   Linkedin,
@@ -168,6 +169,7 @@ function App() {
       description:
         'A web app to enter your thoughts, feelings, and experiences in a digital diary.',
       link: 'https://talsag-dev.github.io/dear-me/',
+      image: DearMeImage,
     },
     {
       name: 'Social Media App',
@@ -592,9 +594,22 @@ function App() {
                     : undefined
                 }
               >
-                <div
-                  className={`group relative bg-gradient-to-br ${project.color} w-full h-full overflow-hidden cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl rounded-lg`}
-                >
+                <div className="group relative w-full h-full overflow-hidden cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl rounded-lg">
+                  {project.image ? (
+                    <div
+                      className="absolute inset-0 bg-cover bg-center blur-sm transform scale-125"
+                      style={{
+                        backgroundImage: `url(${project.image})`,
+                      }}
+                    ></div>
+                  ) : (
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${project.color}`}
+                    ></div>
+                  )}
+
+                  <div className="absolute inset-0 bg-gradient-to-br from-black/60 to-black/20"></div>
+
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-white">
                     <h3 className="text-2xl sm:text-3xl font-bold text-center mb-4 transition-transform duration-300 group-hover:-translate-y-2">
                       {project.name}
