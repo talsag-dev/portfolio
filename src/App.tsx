@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import DearMeImage from './assets/DearMe.png';
+import FitTrackImage from './assets/fitTrack.png';
 import {
   Instagram,
   Linkedin,
@@ -172,6 +173,14 @@ function App() {
       image: DearMeImage,
     },
     {
+      name: 'Fitness Tracker',
+      color: 'from-red-500 to-orange-500',
+      description:
+        'Monitor your workouts, set goals, and track your progress towards a healthier lifestyle. Mobile and Desktop friendly.',
+      link: 'https://talsag-dev.github.io/fit-track/',
+      image: FitTrackImage,
+    },
+    {
       name: 'Social Media App',
       color: 'from-purple-500 to-indigo-500',
       description:
@@ -194,12 +203,6 @@ function App() {
       color: 'from-yellow-500 to-amber-500',
       description:
         'Get accurate weather forecasts and alerts for any location around the globe.',
-    },
-    {
-      name: 'Fitness Tracker',
-      color: 'from-red-500 to-orange-500',
-      description:
-        'Monitor your workouts, set goals, and track your progress towards a healthier lifestyle.',
     },
   ];
 
