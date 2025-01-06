@@ -173,11 +173,11 @@ function App() {
       image: DearMeImage,
     },
     {
-      name: 'Fitness Tracker',
+      name: 'ForgeFit - Fitness Tracker',
       color: 'from-red-500 to-orange-500',
       description:
         'Monitor your workouts, set goals, and track your progress towards a healthier lifestyle. Mobile and Desktop friendly.',
-      link: 'https://talsag-dev.github.io/fit-track/',
+      link: 'https://forge-fit.github.io/client/',
       image: FitTrackImage,
     },
     {
