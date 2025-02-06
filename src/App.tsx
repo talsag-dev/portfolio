@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import DearMeImage from './assets/DearMe.png';
 import FitTrackImage from './assets/fitTrack.png';
+import BringThemHome from './assets/BringThemHome.png';
 import {
   Instagram,
   Linkedin,
@@ -181,10 +182,11 @@ function App() {
       image: FitTrackImage,
     },
     {
-      name: 'Social Media App',
-      color: 'from-purple-500 to-indigo-500',
+      name: 'Bring Them Home 🎗️',
+      color: 'from-yellow-500 to-indigo-500',
       description:
         'Connect with friends and share your life moments through this interactive platform.',
+      image: BringThemHome,
     },
     {
       name: 'Portfolio Website',
