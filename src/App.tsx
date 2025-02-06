@@ -185,7 +185,7 @@ function App() {
       name: 'Bring Them Home 🎗️',
       color: 'from-yellow-500 to-indigo-500',
       description:
-        'Connect with friends and share your life moments through this interactive platform.',
+        'A small static website showing the hostages and there age , story and a way to share your thoughts ',
       image: BringThemHome,
     },
     {
