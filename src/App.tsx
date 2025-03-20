@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import DearMeImage from './assets/DearMe.png';
 import FitTrackImage from './assets/fitTrack.png';
-import BringThemHome from './assets/BringThemHome.png';
+import ReferLink from './assets/referrLink.png';
 import {
   Instagram,
   Linkedin,
@@ -187,7 +187,7 @@ function App() {
       description:
         'A chrome extension used to find people to refer you to jobs.',
       link: 'https://github.com/talsag-dev/linkedin-extension',
-      image: BringThemHome,
+      image: ReferLink,
     },
     {
       name: 'Portfolio Website',
