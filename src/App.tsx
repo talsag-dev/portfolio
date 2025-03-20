@@ -182,10 +182,11 @@ function App() {
       image: FitTrackImage,
     },
     {
-      name: 'Bring Them Home 🎗️',
+      name: 'referLink',
       color: 'from-yellow-500 to-indigo-500',
       description:
-        'A small static website showing the hostages and there age , story and a way to share your thoughts ',
+        'A chrome extension used to find people to refer you to jobs.',
+      link: 'https://github.com/talsag-dev/linkedin-extension',
       image: BringThemHome,
     },
     {
