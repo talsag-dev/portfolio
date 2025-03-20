@@ -443,7 +443,7 @@ function App() {
                 QA Automation Developer
               </h3>
               <p className="text-xl text-gray-600 dark:text-gray-400 mb-4">
-                Perfecto • 2021 - 2022
+                Perfecto • 2020 - 2021
               </p>
               <p className="text-lg">
                 Collaborated with cross-functional teams (developers, QA,
