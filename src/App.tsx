@@ -430,7 +430,7 @@ function App() {
             <div>
               <h3 className="text-2xl font-bold mb-2">Full Stack Developer</h3>
               <p className="text-xl text-gray-600 dark:text-gray-400 mb-4">
-                retrain.ai • 2022 - Present
+                retrain.ai • 2021 - Present
               </p>
               <p className="text-lg">
                 Led development of multiple high-traffic web applications using
